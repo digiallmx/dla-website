@@ -3494,10 +3494,10 @@ input, select, textarea {
 		}
 
 		#banner:after {
-			background-image: -moz-linear-gradient(top, rgba(23, 24, 32, 0.90), rgba(23, 24, 32, 0.54)), url("images/overlay.png");;
-			background-image: -webkit-linear-gradient(top, rgba(23, 24, 32, 0.90), rgba(23, 24, 32, 0.54)), url("images/overlay.png");;
-			background-image: -ms-linear-gradient(top, rgba(23, 24, 32, 0.90), rgba(23, 24, 32, 0.54)), url("images/overlay.png");;
-			background-image: linear-gradient(top, rgba(23, 24, 32, 0.90), rgba(23, 24, 32, 0.54)), url("images/overlay.png");;
+			background-image: -moz-linear-gradient(top, rgba(12, 12, 15, 0.96), rgba(12, 12, 15, 0.81)), url("images/overlay.png");;
+			background-image: -webkit-linear-gradient(top, rgba(12, 12, 15, 0.96), rgba(12, 12, 15, 0.81)), url("images/overlay.png");;
+			background-image: -ms-linear-gradient(top, rgba(12, 12, 15, 0.96), rgba(12, 12, 15, 0.81)), url("images/overlay.png");;
+			background-image: linear-gradient(top, rgba(12, 12, 15, 0.96), rgba(12, 12, 15, 0.81)), url("images/overlay.png");;
 			content: '';
 			display: block;
 			height: 100%;
@@ -3531,6 +3531,15 @@ input, select, textarea {
 				#banner .content header p {
 					margin: 0.5em 0 0 0;
 					top: 0;
+					font-size: 1.2em;
+					/* font-weight: bold; */
+				}
+
+				.subtitle {
+					margin: 0.5em 0 0 0;
+					top: 0;
+					font-size: 1.2em;
+					font-weight: bold;
 				}
 
 			#banner .content .image {
