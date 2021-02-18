@@ -21,15 +21,19 @@
       exit;
   }
 
-  $email_from = 'webpage@conbortex.com';//<== update the email address
-  $email_subject = "Mensaje desde la página";
+  $email_from = 'webpage@dlalogistica.com';//<== update the email address
+  $email_subject = "Mensaje desde la webpage DLA";
   $email_body = "Has recibido un mensaje de: $name.\n".
-      "Mensaje:\n $message";
-      
-  $to = "vbarragan@conbortex.com, fernandoz@conbortex.com"; // $to = "vbarragan@conbortex.com; fernandoz@conbortex.com";//<== update the email address
+                "Mensaje:\n $message\n".
+                "responder al correo: $visitor_mail\n";
+
+  $bcc_mail = "joe@digiall.mx";
+  $to = "contacto@dlalogistica.com";
+  // $to = "joe@digiall.mx, joeldrt@gmail.com";
   $headers = "From: $email_from \r\n";
   $headers .= "Reply-To: $visitor_mail \r\n";
   $headers .= "Return-Path: $visitor_mail \r\n";
+  $headers .= "BCC: $bcc_mail \r\n";
   $headers .= "X-Mailer: PHP \r\n";
   //Send the email!
   mail($to,$email_subject,$email_body,$headers);
