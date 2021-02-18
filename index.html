@@ -174,10 +174,10 @@
 					<p>Estamos para ayudarte a resolver todas tus dudas</p>
 				</header>
 				<section>
-					<form>
+					<form onsubmit="postForm(event)">
 						<div class="row gtr-uniform gtr-50">
 							<div class="col-6 col-12-xsmall">
-								<input type="text" name="name" id="nombre" value="" placeholder="Name" />
+								<input type="text" name="name" id="name" value="" placeholder="Nombre" />
 							</div>
 							<div class="col-6 col-12-xsmall">
 								<input type="email" name="email" id="email" value="" placeholder="Email" />
@@ -187,7 +187,7 @@
 							</div>
 							<div class="col-12">
 								<ul class="actions">
-									<li><input type="submit" value="Enviar mensaje" class="primary" /></li>
+									<li><input type="submit" id="submit-form-button" value="Enviar mensaje" class="primary" /></li>
 									<li><input type="reset" value="Limpiar" /></li>
 								</ul>
 							</div>
@@ -254,6 +254,47 @@
 	<script src="assets/js/breakpoints.min.js"></script>
 	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
+
+	<script>
+		function postForm(event) {
+			console.log(event);
+			event.preventDefault();
+			var data = {
+				name: $("#name").val(),
+				email: $("#email").val(),
+				message: $("#message").val()
+			};
+			if (data.name == null || data.name == '') {
+				alert('hace falta el nombre');
+				$("#name").focus();
+				return;
+			}
+			if (data.email == null || data.email == '') {
+				alert('falta tu correo electrónico');
+				$("#email").focus();
+				return;
+			}
+			if (data.message == null || data.message == '') {
+				alert('falta el mensaje');
+				$("#message").focus();
+				return;
+			}
+			$.ajax({
+				type: "POST",
+				url: "form-to-mail.php",
+				data: data,
+				success: function () {
+					alert('Gracias, en breve nos comunicaremos contigo... saludos.');
+					$("#name").val('');
+					$("#email").val('');
+					$("#message").val('');
+				},
+				error: function () {
+					alert('Error, no se pudo mandar tu mensaje, disculpa las molestias');
+				}
+			});
+		}
+	</script>
 
 </body>
 
